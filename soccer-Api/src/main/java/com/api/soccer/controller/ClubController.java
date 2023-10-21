@@ -21,21 +21,18 @@ public class ClubController {
     @GetMapping
     public ResponseEntity<List<ClubDTO>> findAll() {
         List<ClubDTO> listClub = clubService.findAll();
-
         return new ResponseEntity<>(listClub, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ClubDTO> findById(@PathVariable(name = "id") Integer id) {
         ClubDTO clubFind = clubService.findById(id);
-
         return new ResponseEntity<>(clubFind, HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<ClubDTO> save(@RequestBody ClubDTO clubDTO) {
         ClubDTO clubSave = clubService.save(clubDTO);
-
         return new ResponseEntity<>(clubSave, HttpStatus.CREATED);
     }
 
