@@ -43,4 +43,58 @@ INSERT INTO competition (name, start_date, end_date) VALUES
 ("Primera División","2023-08-15", "2024-05-10"),
 ("Champions League","2023-08-15", "2024-05-10");
 
+INSERT INTO player (nip, name, nationality, age, position, club_id) VALUES 
+(65151556, "M. Neuer", "Aleman", 37, "POR", 6),
+(65145556, "Kimmich", "Aleman", 28, "MED", 6),
+(67896556, "Reus", "Aleman", 34, "MED", 5),
+(65154682, "Moukoko", "Aleman", 18, "DEL", 5),
+(66945632, "Thiago Alcántar", "Español", 32, "MED", 1),
+(61369455, "Luis Díaz", "Colombiano", 26, "DEL", 1),
+(65133365, "Jude Bellingham", "Aleman", 20, "MED", 8),
+(14766445, "Luka Modrić", "Croata", 38, "MED", 8),
+(75693345, "Vinícius Júnior", "Brasileño", 23, "DEL", 8),
+(21458870, "Lewandowski", "Polaco", 35, "DEL", 9),
+(35248206, "João Félix", "Portugues", 23, "DEL", 9),
+(50036797, "Mbappé", "Frances", 24, "DEL", 14),
+(30054806, "Dembélé", "Frances", 26, "DEL", 14),
+(70520506, "Lautaro Martínez", "Argentino", 26, "DEL", 12),
+(90960654, "Juan Cuadrado", "Colombiano", 35, "MED", 12);
 
+
+
+INSERT INTO club_competition_association (club_id, competition_id) VALUES
+(2,1),
+(3,3),
+(4,3),
+(5,3),
+(1,4),
+(1,3),
+(10,5),
+(12,4),
+(13,3),
+(9,2);
+
+SELECT name, age FROM player
+UNION
+SELECT name, age FROM coach;
+
+SELECT name, age,
+	CASE 
+	WHEN age < 17 THEN "Cadete/Sub-17"
+        WHEN age >= 17 AND age <= 19 THEN "Juvenil/Sub-19"
+        WHEN age > 19 AND age <= 20 THEN "Sub-20"
+        WHEN age > 20 AND age <= 23 THEN "Sub-23"
+        WHEN age > 23 THEN "Adulto/Mayores"
+        ELSE "No definido!"
+    END AS Categoría
+FROM player ORDER by age ASC;    
+
+SELECT club.id, club.city, club.address 
+FROM club
+INNER JOIN club_competition_association 
+ON club.id = club_competition_association.club_id;
+
+SELECT club.id, club.city, club.address 
+FROM club
+LEFT JOIN club_competition_association 
+ON club.id = club_competition_association.club_id;
