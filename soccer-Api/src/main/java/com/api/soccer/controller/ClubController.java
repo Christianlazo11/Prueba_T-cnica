@@ -1,6 +1,7 @@
 package com.api.soccer.controller;
 
 
+import com.api.soccer.dto.ClubDTO;
 import com.api.soccer.entities.Club;
 import com.api.soccer.service.ClubService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,29 +19,29 @@ public class ClubController {
     private ClubService clubService;
 
     @GetMapping
-    public ResponseEntity<List<Club>> findAll() {
-        List<Club> listClub = clubService.findAll();
+    public ResponseEntity<List<ClubDTO>> findAll() {
+        List<ClubDTO> listClub = clubService.findAll();
 
         return new ResponseEntity<>(listClub, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Club> findById(@PathVariable(name = "id") Integer id) {
-        Club clubFind = clubService.findById(id);
+    public ResponseEntity<ClubDTO> findById(@PathVariable(name = "id") Integer id) {
+        ClubDTO clubFind = clubService.findById(id);
 
         return new ResponseEntity<>(clubFind, HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<Club> save(@RequestBody Club club) {
-        Club clubSave = clubService.save(club);
+    public ResponseEntity<ClubDTO> save(@RequestBody ClubDTO clubDTO) {
+        ClubDTO clubSave = clubService.save(clubDTO);
 
         return new ResponseEntity<>(clubSave, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Club> update(@PathVariable(name = "id") Integer id, @RequestBody Club club) {
-        Club clubUpdate = clubService.update(club, id);
+    public ResponseEntity<ClubDTO> update(@PathVariable(name = "id") Integer id, @RequestBody ClubDTO clubDTO) {
+        ClubDTO clubUpdate = clubService.update(clubDTO, id);
         return new ResponseEntity<>(clubUpdate, HttpStatus.CREATED);
     }
 

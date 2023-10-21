@@ -1,8 +1,11 @@
 package com.api.soccer.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -32,7 +35,16 @@ public class Club {
     @Column(name = "address", nullable = false)
     private String address;
 
-    @OneToOne(targetEntity = Coach.class, cascade = CascadeType.PERSIST)
+    @OneToOne(targetEntity = Coach.class, cascade = CascadeType.ALL)
     private Coach coach;
+
+    @ManyToMany(targetEntity = Competition.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "club_competition_association",
+            joinColumns = @JoinColumn(name = "club_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "competition_id", referencedColumnName = "id")
+    )
+    @JsonIgnore
+    List<Competition> competitions;
 
 }
