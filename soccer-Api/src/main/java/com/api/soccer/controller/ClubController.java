@@ -4,6 +4,7 @@ package com.api.soccer.controller;
 import com.api.soccer.dto.ClubDTO;
 import com.api.soccer.entities.Club;
 import com.api.soccer.service.ClubService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,13 +32,13 @@ public class ClubController {
     }
 
     @PostMapping
-    public ResponseEntity<ClubDTO> save(@RequestBody ClubDTO clubDTO) {
+    public ResponseEntity<ClubDTO> save(@Valid @RequestBody ClubDTO clubDTO) {
         ClubDTO clubSave = clubService.save(clubDTO);
         return new ResponseEntity<>(clubSave, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ClubDTO> update(@PathVariable(name = "id") Integer id, @RequestBody ClubDTO clubDTO) {
+    public ResponseEntity<ClubDTO> update(@PathVariable(name = "id") Integer id,@Valid @RequestBody ClubDTO clubDTO) {
         ClubDTO clubUpdate = clubService.update(clubDTO, id);
         return new ResponseEntity<>(clubUpdate, HttpStatus.CREATED);
     }
