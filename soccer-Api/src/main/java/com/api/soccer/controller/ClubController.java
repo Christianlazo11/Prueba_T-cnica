@@ -2,8 +2,9 @@ package com.api.soccer.controller;
 
 
 import com.api.soccer.dto.ClubDTO;
-import com.api.soccer.entities.Club;
 import com.api.soccer.service.ClubService;
+import com.api.soccer.utils.AppGlobalConts;
+import com.api.soccer.utils.ClubResponse;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,9 +21,12 @@ public class ClubController {
     private ClubService clubService;
 
     @GetMapping
-    public ResponseEntity<List<ClubDTO>> findAll() {
-        List<ClubDTO> listClub = clubService.findAll();
-        return new ResponseEntity<>(listClub, HttpStatus.OK);
+    public ResponseEntity<ClubResponse> findAll(
+            @RequestParam(value = "pageNo", defaultValue = AppGlobalConts.DEFAULT_PAGE_NUM, required = false) int pageNum,
+            @RequestParam(value = "pageSize", defaultValue = AppGlobalConts.DEFAULT_PAGE_SIZE, required = false) int pageSize,
+            @RequestParam(value = "sortAsc", defaultValue = AppGlobalConts.DEFAULT_ORDER_ASC, required = false) String sortAsc) {
+
+        return new ResponseEntity<>(clubService.findAll(pageNum,pageSize,sortAsc), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

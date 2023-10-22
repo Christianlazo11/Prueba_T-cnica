@@ -5,7 +5,11 @@ import com.api.soccer.entities.Club;
 import com.api.soccer.exceptions.ResourceNotFoundException;
 import com.api.soccer.repository.ClubRepository;
 import com.api.soccer.service.ClubService;
+import com.api.soccer.utils.ClubResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,13 +22,27 @@ public class ClubServiceImpl implements ClubService {
     private ClubRepository clubRepository;
 
     @Override
-    public List<ClubDTO> findAll() {
-        List<ClubDTO> listClub= clubRepository.findAll().stream().map(
-                club -> mapClubDTO(club)
-        ).toList();
+    public ClubResponse findAll(int pageNum, int pageSize, String sortAsc) {
 
+        Sort sort = sortAsc.equalsIgnoreCase(Sort.Direction.ASC.name())
+                ? Sort.by("id").ascending()
+                : Sort.by("id").descending();
 
-        return listClub;
+        PageRequest pageable = PageRequest.of(pageNum, pageSize, sort);
+
+        Page<Club> clubs = clubRepository.findAll(pageable);
+        List<ClubDTO> content = clubs.stream().map(club -> mapClubDTO(club)).toList();
+
+        ClubResponse clubResponse = ClubResponse.builder()
+                .content(content)
+                .pageNum(clubs.getNumber())
+                .pageSize(clubs.getSize())
+                .totalElements(clubs.getTotalElements())
+                .totalPages(clubs.getTotalPages())
+                .lastPage(clubs.isLast())
+                .build();
+
+        return clubResponse;
     }
 
     @Override
