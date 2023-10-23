@@ -13,7 +13,7 @@ import { useUsers } from "./hooks/useUsers";
 
 function App() {
 
-  const {users, setUsers} = useUsers();
+  const {setUsers} = useUsers();
 
   useEffect(() => {
     const getData = async () => {
@@ -29,7 +29,6 @@ function App() {
     
   }, []);
 
-  console.log(users);
   return (
     <BrowserRouter>
 
@@ -37,8 +36,8 @@ function App() {
       <Routes>
 
         <Route path="/" element={<Home/>} />
-        <Route path="/tabla" element={<CardsUser/>}/>
-        <Route path="/tarjetas" element={<TableUsers/>}/>
+        <Route path="/tabla" element={<TableUsers/>}/>
+        <Route path="/tarjetas" element={<CardsUser/>}/>
 
       </Routes>
       <Footer />

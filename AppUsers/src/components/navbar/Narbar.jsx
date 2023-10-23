@@ -39,7 +39,7 @@ export const Narbar = () => {
                     Tabla de Usuarios
                   </Link>
                   <Link to="/tarjetas" className="transition-all duration-300 ease-in block mt-4 lg:inline-block lg:mt-0 text-white hover:text-yellow hover:underline underline-offset-8">
-                    Tarjeta de Usuarios
+                    Tarjetas de Usuarios
                   </Link>
                 </div>
               )
