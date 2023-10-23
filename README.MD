@@ -36,12 +36,14 @@ API de Equipos de futbol que cuenta con datos sobre equipos Top a nivel mundial,
     * database_username => Usuario del gestor de bases de datos "Suele ser root"
 
 ## Archivos Postman para realizar las pruebas
-Estos que se encuentran en la carpeta principal, se deben importar a la Herramienta Postman para realizar pruebas.
+Estos archivos que se encuentran en la carpeta principal, se deben importar a la Herramienta Postman para realizar pruebas.
 - Pruebas en local => PruebaTBTB_version_Local.postman_collection
-- Pruebas en la nube => 
+- Pruebas en la nube => TBTB_Deploy.postman_collection
 
 ## Para evitar el proceso de:
  clonar el repositorio, configurar la base de datos, configurar variables de entorno y la instalación de dependencias, se realizo el despliegue la aplicación en la nube junto con la base de datos en MYSQL, la cual se encuentra en el siguiente Link:
+- Page =>https://few-appliance-production.up.railway.app/api/v1/clubs
+- Swagger => https://few-appliance-production.up.railway.app/swagger-ui/swagger-ui/index.html
 
 
 

@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "23c1fcfc-8449-4c3d-a4af-eb22fbc19c67",
+		"name": "TBTB_Deploy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29719850"
+	},
+	"item": [
+		{
+			"name": "findAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://few-appliance-production.up.railway.app/api/v1/clubs",
+					"protocol": "https",
+					"host": [
+						"few-appliance-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"v1",
+						"clubs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findAllParams",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://few-appliance-production.up.railway.app/api/v1/clubs",
+					"protocol": "https",
+					"host": [
+						"few-appliance-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"v1",
+						"clubs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://few-appliance-production.up.railway.app/api/v1/clubs/5",
+					"protocol": "https",
+					"host": [
+						"few-appliance-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"v1",
+						"clubs",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createClub",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"name\": \"Inter Milan213\",\r\n    \"stadiumName\": \"Giuseppe Meazza\",\r\n    \"city\": \"Milan\",\r\n    \"website\": \"www.Inter.com\",\r\n    \"address\": \"Piazzale Angelo Moratti\",\r\n    \"coach\": {\r\n        \"name\": \"Simone Inzaghi\",\r\n        \"nationality\": \"Italiano\",\r\n        \"age\": 47\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://few-appliance-production.up.railway.app/api/v1/clubs",
+					"protocol": "https",
+					"host": [
+						"few-appliance-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"v1",
+						"clubs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateClub",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"name\": \"Inter Update\",\r\n    \"stadiumName\": \"Giuseppe Meazza\",\r\n    \"city\": \"Milan\",\r\n    \"website\": \"www.Inter.com\",\r\n    \"address\": \"Piazzale Angelo Moratti\",\r\n    \"coach\": {\r\n        \"name\": \"Simone Inzaghi\",\r\n        \"nationality\": \"Italiano\",\r\n        \"age\": 47\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://few-appliance-production.up.railway.app/api/v1/clubs/16",
+					"protocol": "https",
+					"host": [
+						"few-appliance-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"v1",
+						"clubs",
+						"16"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteClub",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://few-appliance-production.up.railway.app/api/v1/clubs",
+					"protocol": "https",
+					"host": [
+						"few-appliance-production",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"v1",
+						"clubs"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
