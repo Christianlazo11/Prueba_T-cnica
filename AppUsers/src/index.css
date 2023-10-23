@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    background-color: #1B1B1B;
+}
+
+.card__animate {
+    filter: drop-shadow(10px 0 20px black);
+}
+
+.card__animate:hover {
+    filter: drop-shadow(0 0 2px black);
+}
