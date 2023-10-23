@@ -10,8 +10,7 @@ export const CardCarousel = ({ dataUser }) => {
         setViewModal(true)
         setUserModal(dataUser);
     }
-
-    console.log(dataUser)
+    
     return (
 
         <div className="bg-light h-full w-full text-white rounded-md my-5 py-2 px-4 card_users">

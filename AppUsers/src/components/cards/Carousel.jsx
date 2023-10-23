@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 
@@ -8,12 +10,17 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 
+
 export const Carousel = () => {
 
     const { users } = useUsers();
-    console.log("Existe => " + users);
+    const [dataUser, setDataUser] = useState([]);
 
-    return users != null && users != undefined ? (
+    useEffect(() => {
+        setDataUser(users)
+    }, [users])
+
+    return (
         <>
             <Swiper
                 effect={'coverflow'}
@@ -45,23 +52,23 @@ export const Carousel = () => {
                         slidesPerView: 4
                     }
                 }}
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
+
             >
-                {
-                    users.map((e, index) => (
+
+                {dataUser.length > 0 ? (
+                    dataUser.map((e, index) => (
                         <SwiperSlide key={index}>
                             <CardCarousel key={index} dataUser={e} />
                         </SwiperSlide>
 
                     ))
+                ) :
+                    <p>Cargando datos ....</p>
+
                 }
 
                 ...
             </Swiper>
         </>
-
-
-
-    ) : <div>Hola</div>
+    )
 }

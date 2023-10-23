@@ -51,8 +51,6 @@ export const TableUsers = () => {
     onGlobalFilterChange: setFiltering
   })
 
-  console.log(table.getHeaderGroups());
-  console.log("f")
   return (
     <div className="min-h-screen h-full w-full max-w-screen-2xl flex flex-col">
       <h1 className="text-white mt-8 mb-2 text-center text-4xl">Tabla de Usuarios</h1>
