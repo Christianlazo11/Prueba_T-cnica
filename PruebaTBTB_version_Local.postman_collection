@@ -1,0 +1,171 @@
+{
+	"info": {
+		"_postman_id": "85edec4d-08a5-49f5-86ac-7ad8999f1874",
+		"name": "PruebaTBTB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29719850"
+	},
+	"item": [
+		{
+			"name": "FindAllParams",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/clubs?pageNo=0&pageSize=3&sortAsc=asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"clubs"
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "3"
+						},
+						{
+							"key": "sortAsc",
+							"value": "asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/clubs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"clubs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/clubs/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"clubs",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createClub",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"name\": \"Inter Milan213\",\r\n    \"stadiumName\": \"Giuseppe Meazza\",\r\n    \"city\": \"Milan\",\r\n    \"website\": \"www.Inter.com\",\r\n    \"address\": \"Piazzale Angelo Moratti\",\r\n    \"coach\": {\r\n        \"name\": \"Simone Inzaghi\",\r\n        \"nationality\": \"Italiano\",\r\n        \"age\": 47\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/clubs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"clubs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateClub",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Manchester Unided02\",\r\n    \"stadiumName\": \"Old Trafor\",\r\n    \"city\": \"Manchester\",\r\n    \"website\": \"www.Manchester.com\",\r\n    \"address\": \"Manchester 50, 44139\",\r\n    \"coach\": {\r\n        \"name\": \"Ronney02\",\r\n        \"nationality\": \"Ingles\",\r\n        \"age\": 38\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/clubs/19",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"clubs",
+						"19"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteClub",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/clubs/19",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"clubs",
+						"19"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
