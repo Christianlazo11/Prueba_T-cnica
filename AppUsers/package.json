@@ -12,10 +12,13 @@
     "start": "npm run eslint:disable  react-scripts start"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.14",
+    "@tanstack/react-table": "^8.10.7",
     "axios": "^1.5.1",
+    "framer-motion": "^10.16.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
